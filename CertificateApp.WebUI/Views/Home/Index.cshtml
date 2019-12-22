@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CertificateApp.Model.Certificate>
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+@using GridMvc.Html
+
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+
+
+
+<div class="container" style="width:1000px;">
+    @Html.Grid(Model).Columns(columns =>
+        {
+            columns.Add(c => c.CertificateNo).Titled("Cert. No").Filterable(true);
+            columns.Add(c => c.BrideGroom.name).Titled("BrideGroom Name").Filterable(true);
+            columns.Add(c => c.Bride.name).Titled("Bride Name").Filterable(true);
+            columns.Add(c => (c.DateOfMarriage)).Format("{0:dd/MM/yyyy}").Titled("Marriage Date").Filterable(true);
+            columns.Add(c => c.BrideGroom.domicile).Titled("Domicile").Filterable(true);
+            columns.Add(c => c.Municipality.name).Titled("Municipality").Filterable(true);
+            columns.Add()
+                        .Encoded(false)
+                        .Sanitized(false)
+                        .SetWidth(30)
+                        .RenderValueAs(c => Html.ActionLink("View", "ViewCertificate", new { filter = c.CertificateNo }));
+        }).WithPaging(10).Sortable(true)
+</div>

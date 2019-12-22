@@ -1,0 +1,206 @@
+﻿@model CertificateApp.Model.CertificateWrapper
+@using System;
+@using System.Web.Mvc.Html;
+@using CertificateApp.Model;
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NewCertificate</title>
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("NewCertificate", "Home", FormMethod.Post))
+        {
+        <div class="form-container">
+
+            <div class="form-row">
+                <div class="col-md-8"></div>
+                <div class="col-md-2 text-center">
+                    <label>Select Municipality</label>
+                </div>
+                <div class="col-md-2 text-center">
+                    @Html.DropDownListFor(m => m.Certificate.Municipality.id,
+                        Model.MunicipalityList,
+                        "-- Select --",
+                        new { @class = "form-control" })
+                </div>
+            </div>
+            <!-- BrideGroom Section begins -->
+            @*<div class="row">
+            <div class="col"><hr></div>
+            <div class="col-auto">BrideGroom details</div>
+            <div class="col"><hr></div>
+        </div>*@
+            <div class="center-div">
+                <h1>BrideGroom details</h1>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4">
+                    <label>Name</label>
+                    @Html.TextBoxFor(m => m.Certificate.BrideGroom.name, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <label>Father's Name</label>
+                    @Html.TextBoxFor(m => m.Certificate.BrideGroom.fatherName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <label>Mother's Name</label>
+                    @Html.TextBoxFor(m => m.Certificate.BrideGroom.motherName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <label>Date of Birth</label>
+                    @Html.TextBoxFor(m => m.Certificate.BrideGroom.DOB, new { @class = "form-control" })
+                    <div class="alert-danger">@Html.ValidationMessageFor(m => m.Certificate.BrideGroom.DOB)</div>
+                </div>
+                <div class="col-sm-2">
+                    <label>Age</label>
+                    @Html.TextBoxFor(m => m.Certificate.BrideGroom.age, new { @class = "form-control", disabled = "disabled" })
+                </div>
+                <div class="col-sm-7">
+                    <label>Place of Birth</label>
+                    @Html.TextBoxFor(m => m.Certificate.BrideGroom.birthPlace, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-5">
+                    <label>Profession</label>
+                    @Html.TextBoxFor(m => m.Certificate.BrideGroom.profession, new { @class = "form-control" })
+                </div>
+                <div class="col-md-7">
+                    <label>Domicile</label>
+                    @Html.TextBoxFor(m => m.Certificate.BrideGroom.domicile, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <!-- BrideGroom Section ends -->
+            <div class="center-div">
+                <h1>Bride details</h1>
+            </div>
+            <!-- Bride Section begins -->
+            <div class="form-row">
+                <div class="col-md-4">
+                    <label>Name</label>
+                    @Html.TextBoxFor(m => m.Certificate.Bride.name, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <label>Father's Name</label>
+                    @Html.TextBoxFor(m => m.Certificate.Bride.fatherName, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    <label>Mother's Name</label>
+                    @Html.TextBoxFor(m => m.Certificate.Bride.motherName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <label>Date of Birth</label>
+                    @Html.TextBoxFor(m => m.Certificate.Bride.DOB, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-2">
+                    <label>Age</label>
+                    @Html.TextBoxFor(m => m.Certificate.Bride.age, new { @class = "form-control", disabled = "disabled" })
+                </div>
+                <div class="col-sm-7">
+                    <label>Place of Birth</label>
+                    @Html.TextBoxFor(m => m.Certificate.Bride.birthPlace, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-5">
+                    <label>Profession</label>
+                    @Html.TextBoxFor(m => m.Certificate.Bride.profession, new { @class = "form-control" })
+                </div>
+                <div class="col-md-7">
+                    <label>Domicile</label>
+                    @Html.TextBoxFor(m => m.Certificate.Bride.domicile, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <!-- Bride Section ends -->            
+            <div class="center-div">
+                <h1>Registration details</h1>
+            </div>
+            <!-- Registration Section begins -->
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <label>Date of Marriage</label>
+                    @Html.TextBoxFor(m => m.Certificate.DateOfMarriage, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-6">
+                    <label>Place of Marriage</label>
+                    @Html.TextBoxFor(m => m.Certificate.PlaceOfMarriage, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-3">
+                    <label>Date of Registration of Marriage</label>
+                    @Html.TextBoxFor(m => m.Certificate.DateOfRegistration, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm-3">
+                    <label>Issue Date</label>
+                    @Html.TextBoxFor(m => m.Certificate.DateOfIssue, new { @class = "form-control" ,disabled = "disabled"})
+                </div>
+            </div>
+
+            <!-- Registration Section ends -->
+            @if (Model.Certificate == null || Model.Certificate?.CertificateNo == 0)
+            {
+                <div class="row">
+                    <div class="form-control buttons">
+
+                        <input class="btn btn-primary btn-lg btn-block" type="submit" name="Submit" />
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-control buttons">
+                        <input class="btn btn-secondary btn-lg btn-block" type="button" id="btnCancel" name="Cancel" value="Cancel"/>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="form-control buttons">
+                        @*<input class="btn btn-primary" type="submit" name="Submit" disabled/>*@
+                        @Html.ActionLink("Go Back", "Index", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            }
+        </div>
+                    }
+                </div>
+    </body>
+</html>
+<style>
+ 
+
+</style>
+<script type="text/javascript">
+    $('#Certificate_BrideGroom_DOB').on('input', function (val) {        
+        $('#Certificate_BrideGroom_age').val(GetAge(val.target.value));        
+    });
+    $('#Certificate_Bride_DOB').on('input', function (val) {        
+        $('#Certificate_Bride_age').val(GetAge(val.target.value));        
+    });
+    function GetAge(dob) {
+            var timestamp = Date.parse(dob);
+            if (isNaN(timestamp) == false) {
+                var d = new Date(timestamp);
+                var today = new Date();
+                var age = today.getFullYear() - d.getFullYear();
+                return age;
+            }
+    }
+    $("#btnCancel").on("click", function () {
+        location.href = "/Home/index";
+    });
+</script>

@@ -1,0 +1,185 @@
+﻿@model CertificateApp.Model.Certificate
+@{
+    ViewBag.Title = "ViewCertificate";
+    Layout = "~/Views/_Layout.cshtml";
+}
+    <div class="container">
+        <div class="form-container">
+            <!-- BrideGroom Section begins -->
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Certificate No.</label>
+                </div>
+                <div class="col-md-4">
+                    <span>@Model.CertificateNo</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Name</label>
+                </div>
+                <div class="col-md-4">
+                    <span>@Model.BrideGroom.name</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Father's Name</label>
+                </div>
+                <div class="col-md-4">
+                    <span>@Model.BrideGroom.fatherName</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Mother's Name</label>
+                </div>
+                <div class="col-md-4">
+                    <span>@Model.BrideGroom.motherName</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Date of Birth</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.BrideGroom.DOB.ToString("dd/MM/yyyy")</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Age</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@(@DateTime.Now.Year - @Model.BrideGroom.DOB.Year)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="validationServer04">Place of Birth</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.BrideGroom.birthPlace</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Profession</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.BrideGroom.profession</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Domicile</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.BrideGroom.domicile</span>
+                </div>
+            </div>
+
+            <!-- BrideGroom Section ends -->
+            <!-- Bride Section begins -->
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Name</label>
+                </div>
+                <div class="col-md-4">
+                    <span>@Model.Bride.name</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Father's Name</label>
+                </div>
+                <div class="col-md-4">
+                    <span>@Model.Bride.fatherName</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Mother's Name</label>
+                </div>
+                <div class="col-md-4">
+                    <span>@Model.Bride.motherName</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Date of Birth</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.Bride.DOB.ToString("dd/MM/yyyy")</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Age</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@(@DateTime.Now.Year - @Model.Bride.DOB.Year)</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="validationServer04">Place of Birth</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.Bride.birthPlace</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Profession</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.Bride.profession</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Domicile</label>
+                </div>
+                <div class="col-md-4">
+                    <span>@Model.Bride.domicile</span>
+                </div>
+            </div>
+
+            <!-- Registration Section begins -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Date of Marriage</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.DateOfMarriage</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Place of Marriage</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.PlaceOfMarriage</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Date of Registration of Marriage</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.DateOfRegistration</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Issue Date</label>
+                </div>
+                <div class="col-sm-4">
+                    <span>@Model.DateOfIssue</span>
+                </div>
+            </div>
+            <!-- Registration Section ends -->
+        </div>
+    </div>
